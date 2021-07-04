@@ -1,21 +1,19 @@
 function brackets(string) {
     let stack = [];
 
+    let dictionary = {
+        ")": "(",
+        "}": "{",
+        "]": "[",
+        ">": "<"
+    }
+
     for (let i = 0; i < string.length; i++) {
         if (string[i] === "(" || string[i] === "{" || string[i] === "[" || string[i] === "<") {
             stack.push(string[i]);
         } 
-        else if (string[i] === ")") {
-            if (stack.pop() !== "(") return false;
-        }
-        else if (string[i] === "}") {
-            if (stack.pop() !== "{") return false;
-        }
-        else if (string[i] === "]") {
-            if (stack.pop() !== "[") return false;
-        }
-        else if (string[i] === ">") {
-            if (stack.pop() !== "<") return false;
+        else if (string[i] === ")" || string[i] === "}" || string[i] === "]" || string[i] === ">") {
+            if (stack.pop() !== dictionary[string[i]]) return false;
         }
     }
 
