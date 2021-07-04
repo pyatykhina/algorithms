@@ -12,7 +12,7 @@ function brackets(string) {
         if (string[i] === "(" || string[i] === "{" || string[i] === "[" || string[i] === "<") {
             stack.push(string[i]);
         } 
-        else if (string[i] === ")" || string[i] === "}" || string[i] === "]" || string[i] === ">") {
+        else if (dictionary[string[i]]) {
             if (stack.pop() !== dictionary[string[i]]) return false;
         }
     }
