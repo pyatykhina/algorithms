@@ -2,17 +2,13 @@ function primes(n) {
     let result = [];
 
     for (let i = 1; i <= n; i++) {
-        let j = 2;
         let flag = false;
 
-        while (j < i) {
-
-            if (i % j === 0) {
+        result.forEach(prime => {
+            if (prime !== 1 && i % prime === 0) {
                 flag = true;
-                break;
-            }
-            j++;
-        }
+            } 
+        })
 
         if (flag === false) result.push(i);
     }
